@@ -79,6 +79,9 @@ public class BankAccount { /* " extends Object {"  toutes les classes (à l'exce
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, balance, currency, status);
+        return Objects.hashCode(this.accountId) +
+                Objects.hashCode(this.balance) +
+                Objects.hashCode(this.currency) +
+                Objects.hashCode(this.status);
     }
 }

@@ -50,6 +50,6 @@ public class Main2 {
 
     public static String toJson(Object obj) throws JsonProcessingException { // JavaScript Object Notation
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(obj);
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
     }
 }

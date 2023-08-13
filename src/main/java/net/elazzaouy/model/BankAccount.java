@@ -3,7 +3,7 @@ package net.elazzaouy.model;
 import java.util.Objects;
 import java.util.UUID;
 
-public class BankAccount { /* " extends Object {"  toutes les classes (à l'exception des énumérations) sont héritées
+public abstract class BankAccount { /* " extends Object {"  toutes les classes (à l'exception des énumérations) sont héritées
     de la classe "java.lang.Object" par defaut. */
     // les niveaux de protection : public, protected, package(par defaut), private.
     // public : Accessible partout.
@@ -84,4 +84,8 @@ public class BankAccount { /* " extends Object {"  toutes les classes (à l'exce
                 Objects.hashCode(this.currency) +
                 Objects.hashCode(this.status);
     }
+
+    public abstract String getType(); /* Une méthode abstraite "getType()" est une méthode déclarée dans une classe abstraite
+     "BankAccount" qui n'a pas d'implémentation concrète dans cette classe.
+     Cela signifie que les sous-classes "CurrentAccount, SavingAccount" doivent fournir une implémentation concrète de cette méthode. */
 }

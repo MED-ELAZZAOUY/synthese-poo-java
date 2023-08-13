@@ -22,4 +22,9 @@ public class SavingAccount extends BankAccount {
     public String toString(){
         return "Saving Account : interesRate = "+ this.interesRate +" "+super.toString();
     }
+
+    @Override
+    public String getType() {
+        return "Saving_Account";
+    }
 }

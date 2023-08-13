@@ -3,6 +3,8 @@
   import net.elazzaouy.model.BankAccount;
 
   public class Main {
+      /* Ce code fonctionne si BankAccount n'est pas une classe abstraite
+      Car on ne peut pas créer d'objets en utilisant une classe abstraite BankAccount
 
     public static void main(String[] args) {
 
@@ -52,7 +54,7 @@
       public static void  printAccount(BankAccount account){
          /*une methode static (methode de classe) est partagée par toutes les instances (objets) de la classe
           et peut être appelée directement sur la classe elle-même, sans nécessiter la création d'une instance
-          "nomDeClasse.nomDeLaMethode()". */
+          "nomDeClasse.nomDeLaMethode()". */ /*
           System.out.println("***********************************************");
           System.out.println("Account ID ="+account.getAccountId());
           System.out.println("Account balance ="+account.getBalance());
@@ -60,4 +62,6 @@
           System.out.println("Account status ="+account.getStatus());
           System.out.println("***********************************************");
     }
+
+    */
 }

@@ -25,4 +25,9 @@ public class CurrentAccount extends BankAccount {
     public String toString(){
         return "Current Account : OverDraft= "+overDraft +" "+ super.toString(); // appeler la methode toString de la superclasse " BankAccount".
     }
+
+    @Override
+    public String getType() {
+        return "Current_Account";
+    }
 }

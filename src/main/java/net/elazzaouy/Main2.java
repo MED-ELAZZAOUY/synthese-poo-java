@@ -27,8 +27,20 @@ public class Main2 {
         List<BankAccount> accountList = new ArrayList<>();
         accountList.add(new CurrentAccount("MAD", 9000, 555));
         accountList.add(new SavingAccount(500, "USA", 49.2));
+        accountList.add(new CurrentAccount("MAD", 16000, 90));
+        accountList.add(new SavingAccount(2009, "USA", 2.2));
         for (BankAccount acc : accountList){
-            System.out.println(acc);
+            /* ==> Ce code représente le travail effectué par la JVM
+                   pour déterminer la méthode qui va être appelée "POLYMORPHISME".
+               ==> Car le compilateur ne peut pas détecter quelle méthode va être appelée.
+            if(acc instanceof CurrentAccount){
+                System.out.println(((CurrentAccount)acc).getType());
+            }else
+                if (acc instanceof SavingAccount){
+                    System.out.println(((SavingAccount)acc).getType());
+                }
+            */ 
+            System.out.println(acc.getType()); // polymorphisme
         }
         System.out.println("=======================");
 

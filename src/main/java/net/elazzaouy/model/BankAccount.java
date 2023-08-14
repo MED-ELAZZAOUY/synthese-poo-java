@@ -88,4 +88,13 @@ public abstract class BankAccount { /* " extends Object {"  toutes les classes (
     public abstract String getType(); /* Une méthode abstraite "getType()" est une méthode déclarée dans une classe abstraite
      "BankAccount" qui n'a pas d'implémentation concrète dans cette classe.
      Cela signifie que les sous-classes "CurrentAccount, SavingAccount" doivent fournir une implémentation concrète de cette méthode. */
+
+    public final void printBank(){
+        /* une methode final est une méthode qui ne peut pas être REDEFINIE dans les sous-classes */
+        /*le compilateur Java peut optimiser l'appel de méthodes final. Étant donné que la méthode
+          NE peut PAS être redéfinie, le compilateur peut effectuer une liaison DIRECTE (appel en ligne)
+          sans nécessiter de résolution dynamique.
+         */
+        System.out.println("------------------------ BANK --------------------------");
+    }
 }

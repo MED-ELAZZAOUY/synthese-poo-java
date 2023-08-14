@@ -39,7 +39,7 @@ public class Main2 {
                 if (acc instanceof SavingAccount){
                     System.out.println(((SavingAccount)acc).getType());
                 }
-            */ 
+            */
             System.out.println(acc.getType()); // polymorphisme
         }
         System.out.println("=======================");

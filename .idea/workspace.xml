@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4c9bfe59-78c0-4a8b-bb0a-7ef1bd2b9b9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/elazzaouy/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/elazzaouy/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/elazzaouy/model/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/elazzaouy/model/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/elazzaouy/model/SavingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/elazzaouy/model/SavingAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -87,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1691589337133</updated>
       <workItem from="1691589341129" duration="53237000" />
-      <workItem from="1692023785001" duration="2649000" />
+      <workItem from="1692023785001" duration="9877000" />
     </task>
     <servers />
   </component>

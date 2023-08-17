@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4c9bfe59-78c0-4a8b-bb0a-7ef1bd2b9b9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/elazzaouy/business/BankAccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/elazzaouy/business/BankAccountServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main2">
+  <component name="RunManager" selected="Application.Main3">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.elazzaouy.Main" />
       <module name="synthese-poo-java" />
@@ -69,8 +70,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.elazzaouy.Main3" />
+      <module name="synthese-poo-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.elazzaouy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main3" />
         <item itemvalue="Application.Main2" />
         <item itemvalue="Application.Main" />
       </list>
@@ -85,7 +100,8 @@
       <option name="presentableId" value="Default" />
       <updated>1691589337133</updated>
       <workItem from="1691589341129" duration="53237000" />
-      <workItem from="1692023785001" duration="9877000" />
+      <workItem from="1692023785001" duration="19450000" />
+      <workItem from="1692277245917" duration="9003000" />
     </task>
     <servers />
   </component>

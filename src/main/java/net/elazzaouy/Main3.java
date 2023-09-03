@@ -2,6 +2,7 @@ package net.elazzaouy;
 
 import net.elazzaouy.business.BankAccountService;
 import net.elazzaouy.business.BankAccountServiceImpl;
+import net.elazzaouy.exceptions.AccountNotFoundException;
 import net.elazzaouy.model.BankAccount;
 import net.elazzaouy.model.CurrentAccount;
 import net.elazzaouy.model.SavingAccount;
@@ -67,8 +68,18 @@ public class Main3 {
         allAccounts.forEach(System.out::println); // Les bonnes pratiques
          */
 
-        System.out.println("=========== getBankAccountById ============");
-        System.out.println(bankAccountService.getBankAccountById("bt-000-med"));
+        System.out.println("=========== getBankAccountById() / Exceptions  ============");
         //System.out.println(bankAccountService.getBankAccountById("med")); //error catch by jvm
+
+        BankAccount accountById = null;
+        try {
+            accountById = bankAccountService.getBankAccountById("bt-000-med");
+            System.out.println(accountById);
+        } catch (AccountNotFoundException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace(); // afficher la trace de l'exception
+        }
+        System.out.println("=========== Suite du programme ========");
+
     }
 }

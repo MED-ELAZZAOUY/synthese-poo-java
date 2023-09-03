@@ -1,5 +1,6 @@
 package net.elazzaouy.business;
 
+import net.elazzaouy.exceptions.AccountNotFoundException;
 import net.elazzaouy.model.BankAccount;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface BankAccountService {
 
     BankAccount addBankAccount(BankAccount account);
     List<BankAccount> getAllAccounts(); // == public abstract List<BankAccount> getAllAccounts();
-    BankAccount getBankAccountById(String id);
+    BankAccount getBankAccountById(String id) throws AccountNotFoundException;
     void addRandomData(int size);
     void credit(String accountId, double amount);
     void dedit(String accountId, double amount);

@@ -1,10 +1,14 @@
 package net.elazzaouy.business;
 
 import net.elazzaouy.exceptions.AccountNotFoundException;
+import net.elazzaouy.model.AccountStatus;
 import net.elazzaouy.model.BankAccount;
+import net.elazzaouy.model.CurrentAccount;
+import net.elazzaouy.model.SavingAccount;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BankAccountServiceImpl implements BankAccountService{
     /* Chaque methode de l'interface BankAccountService doit etre implementee dans la classe BankAccountServiceImpl. */
@@ -40,7 +44,19 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public void addRandomData(int size) {
-
+        AccountStatus[] values = AccountStatus.values();
+        Random radom = new Random();
+        for(int i=0; i<size; i++){
+            BankAccount bankAccount;
+            if(Math.random()>0.5){ // Expression ternaire
+                bankAccount = new CurrentAccount(Math.random()>0.5?"MAD":"USA", Math.random()*1000000, Math.random()*500);
+                bankAccount.setStatus(values[radom.nextInt(values.length)]);
+            }else {
+                bankAccount = new SavingAccount(Math.random()*1000000, Math.random()<0.5?"MAD":"USA",  3+Math.random()*7);
+                bankAccount.setStatus(values[radom.nextInt(values.length)]);
+            }
+            bankAccountList.add(bankAccount);
+        }
     }
 
     @Override

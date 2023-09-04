@@ -29,17 +29,29 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public BankAccount getBankAccountById(String id) throws AccountNotFoundException {
-        for (BankAccount account : bankAccountList){
+        //Declarative Approach (les bonnes pratiques)
+        return bankAccountList
+                .stream()
+                .filter(acc -> acc.getAccountId().equals(id))
+                .findFirst()
+                .orElseThrow(()->new AccountNotFoundException("BankAccount Not Found")); // Optional<BankAccount>
+                /* "Optional" est une classe puissante pour gérer les valeurs potentiellement NULLES de manière plus propre et plus SURE.
+                 Elle favorise une programmation défensive et aide à éviter les "NullPointerException".
+                 */
+
+
+        //Imperative Approach
+        /*for (BankAccount account : bankAccountList){
             if (account.getAccountId().equals(id)){
                 return account;
             }
-        }
+        }*/
         /* Les exceptions sont regroupées en trois catégories principales :
           les exceptions vérifiées (checked exceptions), les exceptions non vérifiées (unchecked exceptions)
           et les erreurs (errors).*/
         //throw new Exception("BankAccount Not Found"); //checked exception (verifiée)
         //throw new RuntimeException("BankAccount Not Found"); //unchecked exception (non vérifiée)
-        throw new AccountNotFoundException("BankAccount Not Found");
+        //throw new AccountNotFoundException("BankAccount Not Found");
     }
 
     @Override

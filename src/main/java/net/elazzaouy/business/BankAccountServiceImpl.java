@@ -1,6 +1,7 @@
 package net.elazzaouy.business;
 
 import net.elazzaouy.exceptions.AccountNotFoundException;
+import net.elazzaouy.exceptions.BalanceNotSufficientException;
 import net.elazzaouy.model.AccountStatus;
 import net.elazzaouy.model.BankAccount;
 import net.elazzaouy.model.CurrentAccount;
@@ -34,7 +35,7 @@ public class BankAccountServiceImpl implements BankAccountService{
                 .stream()
                 .filter(acc -> acc.getAccountId().equals(id))
                 .findFirst()
-                .orElseThrow(()->new AccountNotFoundException("BankAccount Not Found")); // Optional<BankAccount>
+                .orElseThrow(()->new AccountNotFoundException(String.format("BankAccount %s Not Found",id))); // Optional<BankAccount>
                 /* "Optional" est une classe puissante pour gérer les valeurs potentiellement NULLES de manière plus propre et plus SURE.
                  Elle favorise une programmation défensive et aide à éviter les "NullPointerException".
                  */
@@ -72,17 +73,20 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public void credit(String accountId, double amount) {
+    public void credit(String accountId, double amount) throws AccountNotFoundException {
+        BankAccount accountById = getBankAccountById(accountId);
+        accountById.setBalance(accountById.getBalance()+amount);
+    }
 
+    public void debit(String accountId, double amount) throws AccountNotFoundException, BalanceNotSufficientException {
+        BankAccount accountById = getBankAccountById(accountId);
+        if (accountById.getBalance() < amount) throw new BalanceNotSufficientException("Balance Not Sufficient");
+        accountById.setBalance(accountById.getBalance()-amount);
     }
 
     @Override
-    public void dedit(String accountId, double amount) {
-
-    }
-
-    @Override
-    public void transfer(String accountSource, String accountDestination, double amount) {
-
+    public void transfer(String accountSource, String accountDestination, double amount) throws AccountNotFoundException, BalanceNotSufficientException {
+        debit(accountSource, amount);
+        credit(accountDestination, amount);
     }
 }

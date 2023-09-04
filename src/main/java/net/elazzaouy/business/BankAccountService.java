@@ -1,6 +1,7 @@
 package net.elazzaouy.business;
 
 import net.elazzaouy.exceptions.AccountNotFoundException;
+import net.elazzaouy.exceptions.BalanceNotSufficientException;
 import net.elazzaouy.model.BankAccount;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public interface BankAccountService {
     List<BankAccount> getAllAccounts(); // == public abstract List<BankAccount> getAllAccounts();
     BankAccount getBankAccountById(String id) throws AccountNotFoundException;
     void addRandomData(int size);
-    void credit(String accountId, double amount);
-    void dedit(String accountId, double amount);
-    void transfer(String accountSource, String accountDestination, double amount);
+    void credit(String accountId, double amount) throws AccountNotFoundException;
+    void debit(String accountId, double amount) throws AccountNotFoundException, BalanceNotSufficientException;
+    void transfer(String accountSource, String accountDestination, double amount) throws AccountNotFoundException, BalanceNotSufficientException;
 
 }

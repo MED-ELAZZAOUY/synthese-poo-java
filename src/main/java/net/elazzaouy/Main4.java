@@ -32,7 +32,7 @@ public class Main4 {
         }
          */
 
-        try {
+        /*try {
             BankAccount account = bankAccountService.getBankAccountById("bt-000-med");
             System.out.println(DataTransformationUtils.toJson(account));
             System.out.println("=========================================");
@@ -45,7 +45,7 @@ public class Main4 {
         } catch (AccountNotFoundException | BalanceNotSufficientException e){
             System.out.println(e.getMessage());
         }
-        
+
         /*catch (Exception e){
             System.out.println(e.getMessage());
         }*/
@@ -56,5 +56,20 @@ public class Main4 {
         } catch (BalanceNotSufficientException e) {
             System.out.println(e.getMessage());
         }*/
+
+        bankAccountService.getAllAccounts()
+                        .forEach(System.out::println);
+        /*
+        System.out.println("============ SavingAccounts =========");
+        bankAccountService.getSavingAccount()
+                .forEach(System.out::println);
+        System.out.println("============ CurrentAccounts =========");
+        bankAccountService.getCurrentAccount()
+                .stream()
+                .map(DataTransformationUtils::toJson)
+                .forEach(System.out::println);
+        */
+
+        System.out.println("TotalBalance : "+bankAccountService.getTotalBalance());
     }
 }

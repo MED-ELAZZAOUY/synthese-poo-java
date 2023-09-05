@@ -10,6 +10,7 @@ import net.elazzaouy.model.SavingAccount;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class BankAccountServiceImpl implements BankAccountService{
     /* Chaque methode de l'interface BankAccountService doit etre implementee dans la classe BankAccountServiceImpl. */
@@ -88,5 +89,42 @@ public class BankAccountServiceImpl implements BankAccountService{
     public void transfer(String accountSource, String accountDestination, double amount) throws AccountNotFoundException, BalanceNotSufficientException {
         debit(accountSource, amount);
         credit(accountDestination, amount);
+    }
+
+    @Override
+    public List<BankAccount> getSavingAccount() {
+        return bankAccountList
+                .stream()
+                .filter(account ->account instanceof SavingAccount )
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BankAccount> getCurrentAccount() {
+        return bankAccountList
+                .stream()
+                .filter(account ->account instanceof CurrentAccount )
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public double getTotalBalance() {
+        //Declarative Approach
+        return bankAccountList
+                .stream()
+                .map(bankAccount -> bankAccount.getCurrency().equals("USA")? bankAccount.getBalance()*10: bankAccount.getBalance())
+                .reduce(0.0, Double::sum);
+        /*return bankAccountList
+                .stream()
+                .mapToDouble(BankAccount::getBalance)
+                .sum();
+
+        //Imperative Approach
+        /*double totalBalance = 0;
+        for (BankAccount account : bankAccountList){
+            totalBalance+=account.getBalance();
+        }
+        return totalBalance;
+        */
     }
 }

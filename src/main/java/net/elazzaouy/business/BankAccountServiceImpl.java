@@ -127,4 +127,15 @@ public class BankAccountServiceImpl implements BankAccountService{
         return totalBalance;
         */
     }
+
+    @Override
+    public List<BankAccount> searchAccounts(Condition<BankAccount> condition) {
+        List<BankAccount> results = new ArrayList<>();
+        for (BankAccount account: bankAccountList){
+            if(condition.test(account)){
+                results.add(account);
+            }
+        }
+        return results;
+    }
 }

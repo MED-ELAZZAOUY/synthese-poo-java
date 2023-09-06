@@ -2,11 +2,15 @@ package net.elazzaouy;
 
 import net.elazzaouy.business.BankAccountService;
 import net.elazzaouy.business.BankAccountServiceImpl;
+import net.elazzaouy.business.Condition;
 import net.elazzaouy.exceptions.AccountNotFoundException;
 import net.elazzaouy.exceptions.BalanceNotSufficientException;
+import net.elazzaouy.model.AccountStatus;
 import net.elazzaouy.model.BankAccount;
 import net.elazzaouy.model.CurrentAccount;
 import net.elazzaouy.utils.DataTransformationUtils;
+
+import java.util.List;
 
 public class Main4 {
     public static void main(String[] args) {
@@ -70,6 +74,23 @@ public class Main4 {
                 .forEach(System.out::println);
         */
 
-        System.out.println("TotalBalance : "+bankAccountService.getTotalBalance());
+        //System.out.println("TotalBalance : "+bankAccountService.getTotalBalance());
+
+        System.out.println("============ searchAccounts =============");
+        /* programmation fonctionnelle
+        List<BankAccount> results = bankAccountService.searchAccounts(account -> account.getBalance()>800000);
+
+        List<BankAccount> results = bankAccountService.searchAccounts(new Condition() {
+            @Override
+            public boolean test(BankAccount bankAccount) {
+                return (bankAccount.getBalance()>10000);
+            }
+        });
+        */
+
+        List<BankAccount> results = bankAccountService.searchAccounts(acc -> acc.getStatus().equals(AccountStatus.BLOCKED));
+        results.stream()
+                .map(DataTransformationUtils::toJson)
+                .forEach(System.out::println);
     }
 }

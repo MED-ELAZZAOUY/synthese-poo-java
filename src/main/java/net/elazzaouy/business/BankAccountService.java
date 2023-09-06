@@ -25,6 +25,7 @@ public interface BankAccountService {
     List<BankAccount> getSavingAccount();
     List<BankAccount> getCurrentAccount();
     double getTotalBalance();
-
+    //List<BankAccount> searchAccounts(Condition condition);
+    List<BankAccount> searchAccounts(Condition<BankAccount> condition);
 
 }
